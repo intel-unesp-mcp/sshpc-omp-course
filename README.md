@@ -30,13 +30,50 @@ qsub jobs/job2
 gcc /hpcfs/home/sshpc/OMPCourse/OMP-loop-WorkSharing.c -o /hpcfs/home/sshpc/OMPCourse/OMP-loop-WorkSharing -fopenmp
 qsub jobs/job2
 
-6 hands-on first part
+6 performance comparison
+
+Serial version:​
+
+gcc OMP-matrix-sum.c -o OMP-matrix-sum​
+time ./OMP-matrix-sum ​
+
+Parallel version:​
+
+gcc OMP-matrix-sum.c -o OMP-matrix-sum -fopenmp​
+time ./OMP-matrix-sum ​
 
 7 race condition
+
+gcc OMP-race.c -o OMP-race -fopenmp
+qsub jobs/job2
 
 8 break dependency using algorithm
 
 9 sycronization
 
-10 task
-fibonacci
+OMP-race.c
+  critical
+  atomic
+  ordered
+
+10 sycronization
+
+gcc OMP-sync.c -o OMP-sync -fopenmp
+./OMP-sync
+
+11 task
+
+gcc OMP-task.c -o OMP-task
+./OMP-task 
+
+12 fibonacci
+
+gcc fib-no-recursion.c -o fib-no-recursion
+./fib-no-recursion
+gcc fib-no-recursion.c -o fib-no-recursion -fopenmp
+./fib-no-recursion
+
+gcc fib-task.c -o fib-task 
+./fib-task 
+gcc fib-task.c -o fib-task -fopenmp
+./fib-task
