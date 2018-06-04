@@ -55,28 +55,26 @@ gcc OMP-race.c -o OMP-race -fopenmp
 
 qsub jobs/job2
 
-# 8 break dependency using algorithm
-
-# 9 sycronization
+# 8 sycronization
 
 OMP-race.c
   critical
   atomic
   ordered
 
-# 10 sycronization
+# 9 sycronization
 
 gcc OMP-sync.c -o OMP-sync -fopenmp
 
 ./OMP-sync
 
-# 11 task
+# 10 task
 
 gcc OMP-task.c -o OMP-task
 
 ./OMP-task 
 
-# 12 fibonacci
+# 11 fibonacci
 
 gcc fib-no-recursion.c -o fib-no-recursion
 
