@@ -10,12 +10,12 @@ Compare the execution of serial matrix multiplication against parallel version u
 
 compilation:
 ```
-cd hands-on/matrix
+cd hands-on/matrix/linux
 make clean 
 make gcc
 ```
 
-Execution
+Execution:
 ```
 ./matrix.gcc
 ```
@@ -33,8 +33,7 @@ make clean
 make runme-CPU
 ```
 
-Execution
-
+Execution:
 ```
 ./runme-CPU [size] [repetition]
 ```
@@ -42,7 +41,7 @@ Execution
 Parameter [size] is size of array
 Parameter [trials] define how many times the operations will be performed
 
-Example: ./quicksort 3000 100
+Example: ./runme-CPU 3000 100
 
 # IronBar 
 
@@ -50,11 +49,11 @@ Parallelize this code using OpenMP.
 
 This code was used as warmup for Marathon of Parallel Programming at ERAD-SP 2018 (https://eradsp2018.lsc.ic.unicamp.br/desafio.html)
 
-compile
+compilation:
 ```
 gcc -O3 -fopenmp ironbar.c -o ironbar
 ```
-Execute
+Execution:
 ```
 ./ironbar < input
 ```
@@ -65,7 +64,7 @@ Parallelize this code using OpenMP.
 
 This code implements the Harmonic Progression sum and was used as warmup for Marathon of Parallel Programming at WSCAD 2016 (http://www.wscad-2016.ufs.br)
 
-Compilation
+Compilation:
 ```
 cd sum
 make
@@ -73,12 +72,12 @@ make
 
 Execution:
 
-Fast example
+Fast example:
 ```
 ./sum < sum.in
 ```
 
-Slower example
+Slower example:
 ```
 ./sum < sum2.in
 ```
@@ -87,12 +86,12 @@ Slower example
 
 Paralelize this code using OpenMP Tasks.
 
-Compilation
+Compilation:
 ```
 gcc -fopenmp -o quicksort quicksort.c
 ```
 	
-Execution
+Execution:
 ```
     ./quicksort [size] 
 ```
