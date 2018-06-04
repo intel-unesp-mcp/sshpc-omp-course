@@ -22,18 +22,12 @@ qstat
 
 gcc /hpcfs/home/sshpc/OMPCourse/OMP-hello-function.c -o /hpcfs/home/sshpc/OMPCourse/OMP-hello-function -fopenmp
 
-qsub jobs/job2
-
 # 4 Data Sharing Clauses
 
 gcc /hpcfs/home/sshpc/OMPCourse/OMP-hello-PR-variable.c -o /hpcfs/home/sshpc/OMPCourse/OMP-hello-PR-variable -fopenmp
 
-qsub jobs/job2
-
 # 5 loop worksharing
 gcc /hpcfs/home/sshpc/OMPCourse/OMP-loop-WorkSharing.c -o /hpcfs/home/sshpc/OMPCourse/OMP-loop-WorkSharing -fopenmp
-
-qsub jobs/job2
 
 # 6 performance comparison
 
@@ -80,7 +74,7 @@ gcc fib-no-recursion.c -o fib-no-recursion
 
 ./fib-no-recursion
 
-gcc fib-no-recursion.c -o fib-no-recursion -fopenmp
+gcc fib-no-recursion.c -o fib-no-recursionOM -fopenmp
 
 ./fib-no-recursionOM
 
@@ -88,6 +82,6 @@ gcc fib-task.c -o fib-task
 
 ./fib-task 
 
-gcc fib-task.c -o fib-task -fopenmp
+gcc fib-task.c -o fib-taskOM -fopenmp
 
 ./fib-taskOM
