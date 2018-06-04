@@ -3,9 +3,9 @@
 # 1 hello
 #without fopenmp
 
-gcc OMP-hello.c -o OMP-hello -fopenmp
+gcc OMP-hello.c -o OMP-helloOM -fopenmp
 
-./OMP-hello
+./OMP-helloOM
 
 gcc OMP-hello.c -o OMP-hello
 
@@ -45,9 +45,9 @@ time ./OMP-matrix-sum ​
 
 Parallel version:​
 
-gcc OMP-matrix-sum.c -o OMP-matrix-sum -fopenmp​
+gcc OMP-matrix-sum.c -o OMP-matrix-sumOM -fopenmp​
 
-time ./OMP-matrix-sum ​
+time ./OMP-matrix-sumOM ​
 
 # 7 race condition
 
@@ -82,7 +82,7 @@ gcc fib-no-recursion.c -o fib-no-recursion
 
 gcc fib-no-recursion.c -o fib-no-recursion -fopenmp
 
-./fib-no-recursion
+./fib-no-recursionOM
 
 gcc fib-task.c -o fib-task 
 
@@ -90,4 +90,4 @@ gcc fib-task.c -o fib-task
 
 gcc fib-task.c -o fib-task -fopenmp
 
-./fib-task
+./fib-taskOM
