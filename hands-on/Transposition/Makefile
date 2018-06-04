@@ -1,4 +1,4 @@
-CXX = icpc
+CXX = g++
 CXXFLAGS = -g -O3 -fopenmp -DMETHOD=1
 MICFLAGS  = 
 HOSTFLAGS = 

@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cmath>
-#include <omp.h>
+//#include <omp.h>
 #include "Transpose.h"
 
 void InitMatrix(FTYPE* A, const int n) {
@@ -51,19 +51,19 @@ int main(int argc, char** argv){
   if (argc >= 3)  nTrials = atoi(argv[2]);
 
   printf("# Benchmarking in-place transposition of [%d x %d] matrix\n", n, n);
-  printf("# Platform: %s, threads: %d, trials: %d, method: %d\n", 
+  printf("# Platform: %s, trials: %d, method: %d\n", 
 	 #ifdef __MIC__ 
 	 "MIC",
 	 #else
 	 "CPU",
 	 #endif
-	 omp_get_max_threads(), nTrials, METHOD);
+	 nTrials, METHOD);
 
   const int skipTrials = 2; // Skip the first two trials (initialization, verification in trial 0)
   const int nSizes = 7;    // How many matrix sizes to test
 
   // Matrix data container, aligned on a 64-byte boundary
-  FTYPE* A = (FTYPE*)_mm_malloc(n*n*sizeof(FTYPE), 64);
+  FTYPE* A = (FTYPE*)malloc(n*n*sizeof(FTYPE));
 
   const size_t nCacheFlush = ((size_t)n*(size_t)n*sizeof(FTYPE) < (1L<<27L) ? 1L << 27L : 1L);
   char* cacheFlush = (char*)malloc(nCacheFlush);
@@ -77,9 +77,8 @@ int main(int argc, char** argv){
     if (iTrial == 0) InitMatrix(A, n);
 
     // Perform and time the transposition operation
-    const double t0 = omp_get_wtime();
+
     Transpose(A, n);
-    const double t1 = omp_get_wtime();
 
     if (iTrial == 0) {
       // For the first trial only, verify the result of the transposition
@@ -97,7 +96,7 @@ int main(int argc, char** argv){
 #endif
 	
     // Record the benchmark result
-    t[iTrial] = t1-t0;
+    //t[iTrial] = t1-t0;
 
   }
 
@@ -117,12 +116,12 @@ int main(int argc, char** argv){
   Ravg /= (nTrials - skipTrials); // Mean
   dR = sqrt(dR/(nTrials-skipTrials) - Ravg*Ravg); // Mean square deviation
 
-  printf("n=%6d  rate= %6.1f +- %4.1f GB/s    range=[ %6.1f ... %6.1f ]\n",
-	 n, Ravg, dR, Rmin, Rmax);
+  //printf("n=%6d  rate= %6.1f +- %4.1f GB/s    range=[ %6.1f ... %6.1f ]\n",
+	// n, Ravg, dR, Rmin, Rmax);
   fflush(0);
 
   free(cacheFlush);
 
-  _mm_free(A);
+  free(A);
 
 }
