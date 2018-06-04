@@ -29,7 +29,7 @@ The following code was used in the book "lots of core" volume 1 - Chapter 24
 
 sshpc-omp-course/hands-on/Transposition
 
-IronBar 
+# IronBar 
 
 This code was used as warmup for Marathon of Parallel Programming at ERAD-SP 2018 (https://eradsp2018.lsc.ic.unicamp.br/desafio.html)
 
