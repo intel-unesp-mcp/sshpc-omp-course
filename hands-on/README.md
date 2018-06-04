@@ -1,4 +1,5 @@
-Matrix Multiplication
+# Matrix Multiplication
+
 Based on Intel Vtune Sample
 
 compilation:
@@ -21,7 +22,7 @@ You can change the matrix size using the definition "#define NUM 2048" at "sshpc
 Compare the execution of serial matrix multiplication against parallel version using NUM=512,1024 and 2048
 
 
-Matrix Transposition
+# Matrix Transposition
 
 The following code was used in the book "lots of core" volume 1 - Chapter 24
 
@@ -42,8 +43,7 @@ Execute
 ./ironbar < input
 ```
 
-
-Harmonic Progression SUM (WSCAD 2016 warmup)​
+# Harmonic Progression SUM (WSCAD 2016 warmup)​
 
 This code implements the Harmonic Progression sum and was used as warmup for Marathon of Parallel Programming at WSCAD 2016 (http://www.wscad-2016.ufs.br)
 
@@ -66,7 +66,7 @@ Slower example
 ```
 
 
-Apply task parallelism to QuickSort algorithm
+# Apply task parallelism to QuickSort algorithm
 
 Compilation
 ```
