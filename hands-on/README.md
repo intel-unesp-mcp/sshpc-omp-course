@@ -55,7 +55,7 @@ gcc -O3 -fopenmp ironbar.c -o ironbar
 ```
 Execution:
 ```
-./ironbar < input
+./ironbar < input2
 ```
 
 # Harmonic Progression SUM (WSCAD 2016 warmup)​
@@ -67,7 +67,7 @@ This code implements the Harmonic Progression sum and was used as warmup for Mar
 Compilation:
 ```
 cd sum
-make
+g++ sum.cpp -o sum -fopenmp
 ```
 
 Execution:
